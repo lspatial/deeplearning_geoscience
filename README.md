@@ -1,3 +1,4 @@
+![ ](1.jpg)<br>
 **Lianfa Li, 2022, Deep Learning: Principles and Geoscience Analysis of Remote Sensing (in Chinese), Science Press(https://zhuanlan.zhihu.com/p/591913706)**
 
 ### **问题及答案（Problems and answers）**
