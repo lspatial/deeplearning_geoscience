@@ -3,7 +3,7 @@
 **Lianfa Li, 2022, Deep Learning: Principles and Geoscience Analysis of Remote Sensing (in Chinese), Science Press(https://zhuanlan.zhihu.com/p/591913706)**
 
 <img src="https://render.githubusercontent.com/render/math?math=x_{1,2} = \frac{-b \pm \sqrt{b^2-4ac}}{2b}">
-<img src="https://render.githubusercontent.com/render/math?math=x = -1 - {a} "> 
+<img src="https://render.githubusercontent.com/render/math?math=x = -1 - \pm a "> 
 <img src="https://render.githubusercontent.com/render/math?math=e^{i \pi} = -1"> 
 <img src="https://render.githubusercontent.com/render/math?math={\sum_{d=0}^{d_{max}}}">
 <img src="https://render.githubusercontent.com/render/math?math=x_{1,2} = \frac{-b \pm \sqrt{b^2-4ac}}{2b}"> 
