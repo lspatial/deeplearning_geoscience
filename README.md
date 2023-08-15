@@ -1,3 +1,15 @@
+<head>
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+            inlineMath: [['$','$']]
+            }
+        });
+    </script>
+</head>
+
 ![](images/1.jpg)
 
 **Lianfa Li, 2022, Deep Learning: Principles and Geoscience Analysis of Remote Sensing (in Chinese), Science Press(https://zhuanlan.zhihu.com/p/591913706)**
