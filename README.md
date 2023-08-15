@@ -6,6 +6,7 @@
 <img src="https://render.githubusercontent.com/render/math?math=x = -1 \mu "> 
 <img src="https://render.githubusercontent.com/render/math?math=e^{i \pi} = -1"> 
 <img src="https://render.githubusercontent.com/render/math?math={\sum_{d=0}^{d_{max}}}">
+<img src="https://render.githubusercontent.com/render/math?math=x_{1,2} = \frac{-b \pm \sqrt{b^2-4ac}}{2b}"> 
 
 
 ### **问题及答案（Problems and answers）**
