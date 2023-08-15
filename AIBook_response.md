@@ -1,7 +1,7 @@
 **Lianfa Li, 2022, Deep Learning: Principles and Geoscience Analysis of Remote Sensing (in Chinese), Science Press(https://zhuanlan.zhihu.com/p/591913706)**
 
 ### **问题及答案（Problems and answers）**
-**问题1.1** 如何证明伯努利分布的均值及变差分别为式（1.11）与式（1.12）？<br>**答**：伯努利试验有两个可能的结果，即1和0，前者发生的概率为$μ$，后者的概率为$1-\mu$。则试验的期望值为$E[x]=1\cdot \mu +0\cdot (1-\mu )=\mu$，该试验的方差则为$Var[x]=(1-\mu )^{2}\cdot \mu + (0-\mu )^{2}\cdot (1-\mu )=\mu (1-\mu )$。<br>
+**问题1.1** 如何证明伯努利分布的均值及变差分别为式（1.11）与式（1.12）？<br>**答**：伯努利试验有两个可能的结果，即1和0，前者发生的概率为μ，后者的概率为$1-\mu$。则试验的期望值为$E[x]=1\cdot \mu +0\cdot (1-\mu )=\mu$，该试验的方差则为$Var[x]=(1-\mu )^{2}\cdot \mu + (0-\mu )^{2}\cdot (1-\mu )=\mu (1-\mu )$。<br>
 
 **问题1.2**  确定一个$d$维高斯分布的参数有多少个？是否根据一些特征减少其参数个数？<br>**答**：（1）确定一个$d$维高斯分布的参数有2个：均值$μ$和多维随机变量的协方差矩阵$Σ$。<br>（2）若各维度独立同分布，则协方差矩阵是单位向量，即$Σ=I$。<br>
 
