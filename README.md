@@ -15,7 +15,7 @@ a + b
 $$
 
 $$ 1-\mu <img/> $$
-$$ g=\sqrt[2]{-2\log{x}}\cos(2y\pi)$和$h=\sqrt[2]{-2\log{x}}\sin(2y\pi) <img/> $$
+$$ Var[x]=(1-\mu )^{2}\cdot \mu + (0-\mu )^{2}\cdot (1-\mu )=\mu (1-\mu ) <img/> $$
 
 
 ### **问题及答案（Problems and answers）**
