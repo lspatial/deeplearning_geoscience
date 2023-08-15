@@ -15,8 +15,8 @@ E[x]=1\cdot \mu +0\cdot (1-\mu )=\mu
 $$
 
 $$ 1-\mu <img/> $$
-$$ 
-Var[x]=(1-\mu )^{2}\cdot \mu + (0-\mu )^{2}\cdot (1-\mu )=\mu (1-\mu ) 
+you are $$ 
+Var[x]=(1 - \mu ) 
 <img/> 
 $$
 
