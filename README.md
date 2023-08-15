@@ -10,7 +10,7 @@
 <img src="https://render.githubusercontent.com/render/math?math=\begin{equation}\sum_{n=0}^\infty\frac{1}{2^n}\end{equation}">
 
 $$
-a + b
+E[x]=1\cdot \mu +0\cdot (1-\mu )=\mu 
 <img/>
 $$
 
