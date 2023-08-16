@@ -129,7 +129,7 @@ $$
 
 <br>$\overrightarrow{x_{k,\neg i}}$表示去除第 $i$次观测所属k硬币的观测值。<br>（11）因此，得到Gibbs采样公式：
 <p align="center">
-  <img   src="images/3.10.11.jpg"width="2000" />
+  <img   src="images/3.10.11.jpg"width="5000" />
 </p>
 
 <br>（12）利用python实现Gibbs采样过程，得到最终的参数估计结果： $\pi $=0.75， $p$=0.7， $q$=0.75。<br>
