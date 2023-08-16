@@ -2,6 +2,7 @@
   <img   src="images/1.jpg">
 </p>
 **Lianfa Li, 2022, Deep Learning: Principles and Geoscience Analysis of Remote Sensing (in Chinese), Science Press(https://zhuanlan.zhihu.com/p/591913706)**
+
 ### **问题及答案（Problems and answers）**
 **问题1.1** 如何证明伯努利分布的均值及变差分别为式（1.11）与式（1.12）？<br>**答**：伯努利试验有两个可能的结果，即1和0，前者发生的概率为 $μ$，后者的概率为 $1-\mu$。则试验的期望值为 $E[x]=1\cdot \mu +0\cdot (1-\mu )=\mu$ ，该试验的方差则为 $Var[x]=(1-\mu )^{2}\cdot \mu + (0-\mu )^{2}\cdot (1-\mu )=\mu (1-\mu )$。<br>
 
@@ -131,27 +132,16 @@ EM算法的目标是寻找一个合适的模型参数 $θ$使得 $P(X|θ)$尽可
 
 **问题5.1**  令正态分布 $N(μ,σ^2)$的样本 ${x_1,x_2,⋯,x_N }$，证明其均值
 <img src="images/5.1.2.5jpg" width="150" />
-${\hat {\mu }}_{N} =\frac {1}{N}{\textstyle \sum_{n=1}^{N} x_i } $ 是高斯均值参数 $μ$的无偏估计，而样本的方差
+是高斯均值参数 $μ$的无偏估计，而样本的方差
+
 <img src="images/5.1.2.6jpg" width="150" />
-$\hat{\sigma }_{N}^{2}=\frac{1}{N} {\textstyle \sum_{n=1}^{N}(x_i -\hat{\mu }_{N}^2}$ 是方差参数 $\sigma^{2}$的有偏估计。<br>**答**（1）均值估计： 
+
+$\hat{\sigma }_{N}^{2}=\frac{1}{N} {\textstyle \sum_{n=1}^{N}(x_i -\hat{\mu }_{N}^2}$ 是方差参数 $\sigma^{2}$的有偏估计。<br>
+**答**（1）均值估计： 
 <p align="center">
   <img src="images/5.1.1.jpg" width="500" />
 </p>
- 
-$$
-E(\mu )=E(\frac{1}{N}\sum_{j=1}^{N}x_j )
-\\
-=\frac{1}{N}E(\sum_{j=1}^{N}x_j )
-\\
-=\frac{1}{N}\sum_{j=1}^{N}E(x_j)
-\\
-=\frac{1}{N}\cdot N\cdot \hat{\mu }_{N}
-\\
-=\hat{\mu }_{N} 
-<img/>
-$$
-
-$E(\mu )=E(\frac {1}{N} \sum_{j=1}^{N}x_j )=\frac{1}{N}E(\sum_{j=1}^{N}x_j )=\frac{1}{N}\sum_{j=1}^{N}E(x_j)=\frac{1}{N}\cdot N\cdot \hat{\mu }_{N}=\hat{\mu }_{N}$，样本均值是高斯均值参数的无偏估计。<br>
+因此，样本均值是高斯均值参数的无偏估计。<br>
 （2）方差估计： 
 
 $$
@@ -167,20 +157,21 @@ $$
 
 由于 
 <p align="center">
-  <img src="images/5.1.2.2.jpg" width="300" />
+  <img src="images/5.1.2.2.jpg" width="450" />
 </p>
 <br>所以
 <p align="center">
-  <img src="images/5.1.2.1.jpg" width="150" />
+  <img src="images/5.1.2.1.jpg" width="130" />
 </p>
 <br>又有
 <p align="center">
-  <img src="images/5.1.2.3.jpg" width="550" />
+  <img src="images/5.1.2.3.jpg" width="570" />
 </p>
 <br>因此， 
 <p align="center">
-  <img src="images/5.1.2.4.jpg" width="150" />
+  <img src="images/5.1.2.4.jpg" width="300" />
 </p>
+
 综上，样本方差是高斯方差参数的有偏估计。<br>
 
 **问题6.1**  在梯度迭代计算中，节点拓扑排序可由深度优先（Depth First Search，DFS）及宽度优先方法（Breadth First Search，BFS）实现，二种方法分别如何实现？<br>**答**：（1）深度优先搜索会沿着一条路径一直搜索下去，在无法继续搜索时回退到刚刚访问过的结点，深度优先搜索的本质就是持续搜索，遍历所有可能的情况，每次一条路走到底。<br>（2）宽度优先搜索是从初始节点开始，应用产生式规则和控制策略生成第一层结点，同时检查目标结点是否在这些生成的结点中。若没有，再用产生式规则将所有第一层结点逐一拓展，得到第二层结点，并逐一检查第二层结点是否包含目标结点。若没有，再用产生式规则拓展第二层结点。如此依次拓展检查下去，直至发现目标结点为止。如果拓展完所有结点，都没有发现目标结点，则问题无解。<br>
