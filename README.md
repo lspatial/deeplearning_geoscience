@@ -90,18 +90,12 @@ $$
 <p align="center">
   <img   src="images/2.jpg">
 </p>
-<br>（2）这个试验主要分为两个过程。一是 $\overrightarrow{\alpha }\longrightarrow \theta \longrightarrow z_m$：投掷硬币A，生成观测结果中第 $m$次观测结果所使用的硬币编号$k$；二是 $\overrightarrow{\beta }\longrightarrow \phi _{k}  \longrightarrow x_m\mid z_m=k$：生成第 $m$次观测结果时，选择编号为 $k$的硬币，投掷这枚硬币，生成观测结果 $x_m$。<br>（3）第一个过程是二项分布，有 $P(\overrightarrow{z}\mid \theta )=\theta _{k}(1-\theta )^{n-k}$， $k$为硬币A正面朝上的次数。<br>（4）因为 $P(\overrightarrow{z}\mid \theta )\sim B(n,p_A)$，可以取参数 $\theta \sim Beta(\theta ,\overrightarrow{\alpha })$，组成伯努利-Beta共轭分布，则后验分布为： $P(\theta \mid \overrightarrow{z})\sim Beta(\theta \mid \alpha _1+k,\alpha _2+n-k)$， $P(\overrightarrow{z}\mid \overrightarrow{\alpha })=\int P(\overrightarrow{z}\mid \theta )P(\theta \mid \overrightarrow{\alpha })d\theta =\frac{B(\alpha _1+k,\alpha _2+n-k)}{B(\alpha _1,\alpha _2)}$。<br>（5）我们取参数θ的值为在后验分布下的期望，则 $\theta =E(Beta(\theta \mid \alpha _1+k,\alpha _2+n-l))=\frac{\alpha _1+k}{(\alpha _1+k)(\alpha _2+n-k)}$。<br>（6） $n_1$和 $n_2$分别表示使用硬币B和硬币C的次数，如果已知每次观测结果来自哪枚硬币，任何两次观测结果都是可交换的，将来自同一枚硬币的观测结果放在一起： $\overrightarrow{x}=(\overrightarrow{x}_B,\overrightarrow{x}_C)$， $\overrightarrow{z}=(\overrightarrow{z}_B,\overrightarrow{z}_C)$。<br>（7）同上可知，对于来自硬币 $k$的观测结果， $P(\overrightarrow{x}_k\mid \phi _{k})\sim B(n_k,\phi _{k})$，参数$\phi _{k}\sim Beta(\phi _{k}\mid \overrightarrow{\beta }_k)$，组成二项-Beta共轭分布，则后验分布： $P(\phi _{k}\mid \overrightarrow{x}_k)\sim Beta(\phi _{k}\mid \beta _{k,1}+n_{k,1},\phi _{k}\mid \beta _{k,2}+n_{k,2})$，
- $n_{k,1}$和 $n_{k,2}$分别是 $k$硬币出现正反面的次数。<br>（8）参数的值为 $\phi _{k}=\frac{\beta _{k,1}+n_{k,1}}{(\beta _{k,1}+n_{k,1})+(\beta _{k,2}+n_{k,2})}$，因此， $P(\overrightarrow{x}\mid \overrightarrow{z},\overrightarrow{\beta })=P(\overrightarrow{x}_B\mid \overrightarrow{z}_B,\overrightarrow{\beta }_B)=P(\overrightarrow{x}_C\mid \overrightarrow{z}_C,\overrightarrow{\beta }_C)=\frac{B(\beta _{B,1}+k_{B},\beta _{B,2}+n_B-k_B)}{B(\beta _{B,1},\beta _{B,2})}\frac{B(\beta _{C,1}+k_{C},\beta _{C,2}+n_C-k_{C})}{B(\beta _{C,1},\beta _{C,2})}$，综上，可以得到联合分布 $p(\overrightarrow{x},\overrightarrow{z}\mid \overrightarrow{\alpha },\overrightarrow{\beta })=p(\overrightarrow{z}\mid \overrightarrow{\alpha })p(\overrightarrow{x}\mid \overrightarrow{z},\overrightarrow{\beta })=\frac{B(\alpha _1 +k,\alpha _2 +n-k)}{B(\alpha _1 ,\alpha _2 )}\frac{B(\beta _{B,1}+k_{B},\beta _{B,2}+n_B -k_{B})}{B(\beta _{B,1},\beta _{B,2})}\frac{B(\beta _{C,1}+k_{C},\beta _{C,2}+n_C -k_{C})}{B(\beta _{C,1}, \beta _{C,2})}$。<br>（9）由于 $\overrightarrow{x}$是观测到的已知变量，只有 $\overrightarrow{z}$是隐含的变量，所以真正需要采样的是条件分布 $p(\overrightarrow{z}\mid \overrightarrow{x})$。根据Gibbs采样算法的要求，需求得任意一个坐标轴 $i$对应的条件分布 $p(z_i =k\mid \overrightarrow{z_{\neg i}},\overrightarrow{x})$。<br>（10）假设已经观测到 $x_i =t$，根据贝叶斯公式可以得到 $p(z_i =k\mid \overrightarrow{z_{\neg i}},\overrightarrow{x})=p(z_i =k\mid x_i =t,\overrightarrow{z_{\neg i}},\overrightarrow{x_{\neg i}})=\frac{p(z_i =k,x_i=t\mid \overrightarrow{z_{\neg i}},\overrightarrow{x_{\neg i}})}{p(x_i =t\mid \overrightarrow{z_{\neg i}},\overrightarrow{x_{\neg i}})}\propto p(z_i =k,x_i =t\mid \overrightarrow{z_{\neg i}},\overrightarrow{x_{\neg i}})$。去掉第 $i$次观测值并不影响其他共轭结构，其他共轭结构与 $z_i =k$，$x_i =t$是相互独立的，因此 $p(z_i =k\mid \overrightarrow{z_{\neg i}},\overrightarrow{x})\propto p(z_i =k,x_i =t\mid \overrightarrow{z_{\neg i}},\overrightarrow{x_{\neg i}})=p(z_i =k,x_i =t\mid \overrightarrow{z_{k,\neg i}},\overrightarrow{x_{k,\neg i}},\overrightarrow{z_{\neg k}},\overrightarrow{x_{\neg k}})=p(z_i=k,x_i=t\mid \overrightarrow{z_{k,\neg i}},\overrightarrow{x_{k,\neg i}})$， $\overrightarrow{x_{k,\neg i}}$表示去除第 $i$次观测所属k硬币的观测值。<br>（11）因此，得到Gibbs采样公式： 
- 
-$$
-P(z_i=k\mid \overrightarrow{z_{\neg i}},\overrightarrow{x})\propto p(z_i=k,x_i=t\mid \overrightarrow{z_{k,\neg i}},\overrightarrow{x_{k,\neg i}})\\
-=\int P(z_i=k,x_i=t,\theta ,\phi _{k}\mid \overrightarrow{z_{k,\neg i}},\overrightarrow{x_{k,\neg i}})d\theta d\phi _{k}\\
-=E(\theta )E(\phi _{k})=\\
-\frac{\alpha _{1}+n_{(k,\neg i),1}}{(\alpha _{1}+n_{(k,\neg i),1})+(\alpha _{2}+n_{(k,\neg i),2})}\frac{\beta _{k,1}+n_{(k,\neg i),1}}{(\beta _{k,1}+n_{(k,\neg i),1})+(\beta _{k,2}+n_{(k,\neg i),2})} 
-<img/>
-$$
- 
-$P(z_i=k\mid \overrightarrow{z_{\neg i}},\overrightarrow{x})\propto p(z_i=k,x_i=t\mid \overrightarrow{z_{k,\neg i}},\overrightarrow{x_{k,\neg i}})=\int P(z_i=k,x_i=t,\theta ,\phi _{k}\mid \overrightarrow{z_{k,\neg i}},\overrightarrow{x_{k,\neg i}})d\theta d\phi _{k}=E(\theta )E(\phi _{k})=\frac{\alpha _{1}+n_{(k,\neg i),1}}{(\alpha _{1}+n_{(k,\neg i),1})+(\alpha _{2}+n_{(k,\neg i),2})}\frac{\beta _{k,1}+n_{(k,\neg i),1}}{(\beta _{k,1}+n_{(k,\neg i),1})+(\beta _{k,2}+n_{(k,\neg i),2})}$。<br>（12）利用python实现Gibbs采样过程，得到最终的参数估计结果： $π$=0.75， $p$=0.7， $q$=0.75。<br>
+<br>（2）这个试验主要分为两个过程。一是 $\overrightarrow{\alpha }\longrightarrow \theta \longrightarrow z_m$：投掷硬币A，生成观测结果中第 $m$次观测结果所使用的硬币编号$k$；二是 $\overrightarrow{\beta }\longrightarrow \phi _{k}  \longrightarrow x_m\mid z_m=k$：生成第 $m$次观测结果时，选择编号为 $k$的硬币，投掷这枚硬币，生成观测结果 $x_m$。<br>（3）第一个过程是二项分布，有 $P(\overrightarrow{z}\mid \theta )=\theta _{k}(1-\theta )^{n-k}$， $k$为硬币A正面朝上的次数。<br>（4）因为 $P(\overrightarrow{z}\mid \theta )\sim B(n,p_A)$，可以取参数 $\theta \sim Beta(\theta ,\overrightarrow{\alpha })$，组成伯努利-Beta共轭分布，则后验分布为： $P(\theta \mid \overrightarrow{z})\sim Beta(\theta \mid \alpha _1+k,\alpha _2+n-k)$， $P(\overrightarrow{z}\mid \overrightarrow{\alpha })=\int P(\overrightarrow{z}\mid \theta )P(\theta \mid \overrightarrow{\alpha })d\theta =\frac{B(\alpha _1+k,\alpha _2+n-k)}{B(\alpha _1,\alpha _2)}$。<br>（5）我们取参数θ的值为在后验分布下的期望，则 $\theta =E(Beta(\theta \mid \alpha _1+k,\alpha _2+n-l))=\frac{\alpha _1+k}{(\alpha _1+k)(\alpha _2+n-k)}$。<br>（6） $n_1$和 $n_2$分别表示使用硬币B和硬币C的次数，如果已知每次观测结果来自哪枚硬币，任何两次观测结果都是可交换的，将来自同一枚硬币的观测结果放在一起： $\overrightarrow{x}=(\overrightarrow{x}_B,\overrightarrow{x}_C)$， $\overrightarrow{z}=(\overrightarrow{z}_B,\overrightarrow{z}_C)$。<br>（7）同上可知，对于来自硬币 $k$的观测结果， $P(\overrightarrow{x}_k\mid \phi _{k})\sim B(n_k,\phi _{k})$，参数 $\phi _{k}\sim Beta(\phi _{k}\mid \overrightarrow{\beta }_k)$，组成二项-Beta共轭分布，则后验分布： $P(\phi _{k}\mid \overrightarrow{x}_k)\sim Beta(\phi _{k}\mid \beta _{k,1}+n_{k,1},\phi _{k}\mid \beta _{k,2}+n_{k,2})$，
+ $n_{k,1}$和 $n_{k,2}$分别是 $k$硬币出现正反面的次数。<br>（8）参数的值为 $\phi _{k}=\frac{\beta _{k,1}+n_{k,1}}{(\beta _{k,1}+n_{k,1})+(\beta _{k,2}+n_{k,2})}$，因此， $P(\overrightarrow{x}\mid \overrightarrow{z},\overrightarrow{\beta })=P(\overrightarrow{x}_B\mid \overrightarrow{z}_B,\overrightarrow{\beta }_B)=P(\overrightarrow{x}_C\mid \overrightarrow{z}_C,\overrightarrow{\beta }_C)=\frac{B(\beta _{B,1}+k_{B},\beta _{B,2}+n_B-k_B)}{B(\beta _{B,1},\beta _{B,2})}\frac{B(\beta _{C,1}+k_{C},\beta _{C,2}+n_C-k_{C})}{B(\beta _{C,1},\beta _{C,2})}$，综上，可以得到联合分布 $p(\overrightarrow{x},\overrightarrow{z}\mid \overrightarrow{\alpha },\overrightarrow{\beta })=p(\overrightarrow{z}\mid \overrightarrow{\alpha })p(\overrightarrow{x}\mid \overrightarrow{z},\overrightarrow{\beta })=\frac{B(\alpha _1 +k,\alpha _2 +n-k)}{B(\alpha _1 ,\alpha _2 )}\frac{B(\beta _{B,1}+k_{B},\beta _{B,2}+n_B -k_{B})}{B(\beta _{B,1},\beta _{B,2})}\frac{B(\beta _{C,1}+k_{C},\beta _{C,2}+n_C -k_{C})}{B(\beta _{C,1}, \beta _{C,2})}$。<br>（9）由于 $\overrightarrow{x}$是观测到的已知变量，只有 $\overrightarrow{z}$是隐含的变量，所以真正需要采样的是条件分布 $p(\overrightarrow{z}\mid \overrightarrow{x})$。根据Gibbs采样算法的要求，需求得任意一个坐标轴 $i$对应的条件分布 $p(z_i =k\mid \overrightarrow{z_{\neg i}},\overrightarrow{x})$。<br>（10）假设已经观测到 $x_i =t$，根据贝叶斯公式可以得到 $p(z_i =k\mid \overrightarrow{z_{\neg i}},\overrightarrow{x})=p(z_i =k\mid x_i =t,\overrightarrow{z_{\neg i}},\overrightarrow{x_{\neg i}})=\frac{p(z_i =k,x_i=t\mid \overrightarrow{z_{\neg i}},\overrightarrow{x_{\neg i}})}{p(x_i =t\mid \overrightarrow{z_{\neg i}},\overrightarrow{x_{\neg i}})}\propto p(z_i =k,x_i =t\mid \overrightarrow{z_{\neg i}},\overrightarrow{x_{\neg i}})$。去掉第 $i$次观测值并不影响其他共轭结构，其他共轭结构与 $z_i =k$，$x_i =t$是相互独立的，因此 $p(z_i =k\mid \overrightarrow{z_{\neg i}},\overrightarrow{x})\propto p(z_i =k,x_i =t\mid \overrightarrow{z_{\neg i}},\overrightarrow{x_{\neg i}})=p(z_i =k,x_i =t\mid \overrightarrow{z_{k,\neg i}},\overrightarrow{x_{k,\neg i}},\overrightarrow{z_{\neg k}},\overrightarrow{x_{\neg k}})=p(z_i=k,x_i=t\mid \overrightarrow{z_{k,\neg i}},\overrightarrow{x_{k,\neg i}})$， $\overrightarrow{x_{k,\neg i}}$表示去除第 $i$次观测所属k硬币的观测值。<br>（11）因此，得到Gibbs采样公式：
+<p align="center">
+  <img   src="images/3.10.11.jpg">
+</p>
+（12）利用python实现Gibbs采样过程，得到最终的参数估计结果： $π$=0.75， $p$=0.7， $q$=0.75。<br>
 
 **问题3.11**  参考破解凯撒密码的论文，体会MCMC的应用(Diaconis，2008)。<br>**答**：（1）化学和物理方面：从点阵规范理论到硬盘，MCMC计算是化学和物理的支柱；可以利用MCMC算法计算普通液体的性质，计算结果几乎和计算稀气体和谐波固体的性质一样确定。<br>（2）生物学方面：基于MCMC算法研究某地区赤杨、铁山纯林和混交林密度对生长和优势度的影响等。<br>（3）统计学方面：基于MCMC算法，针对多种超市商品日销数额的多步预测，预测个体顾客交易，并预测每笔交易的商品数量等；将MCMC算法应用于粒子滤波器领域及工程应用中。<br>（4）理论研究方面：许多问题，如计算一个矩阵的恒量或一个凸多面体的体积的精确答案可能需要指数级的时间，但是只要能找到一个快速混合马尔可夫链来随机生成问题实例，就可以在多项式次数的操作中找到可证明的精确近似。<br>
 
@@ -135,8 +129,15 @@ EM算法的目标是寻找一个合适的模型参数 $θ$使得 $P(X|θ)$尽可
 
 **问题4.5**  解释一下为什么 ${\sum_{i} (\int Q_i (Z_i )\ln Q_i (Z_i )dZ_i )}\_{Q_{-i} (Z_{-i})}=\sum_{i}\int Q_i (Z_i)\ln Q_i (Z_i)dZ_i $从而 $L(Q(Z))=\sum_{i}\int Q_{i}(Z_i)\ln Q_i ^{\ast } (Z_i)dZ_i+\sum_{i}\sum_{i}\int Q_i (Z_i)\ln Q_i (Z_i)dZ_i+\ln C=-D_{KL}(Q_i (Z_i)||Q_i ^{\ast }(Z_i)+H(Q_{i-1}(Z_{i-1})) +C$。<br>**答**：。<br>
 
-**问题5.1**  令正态分布 $N(μ,σ^2)$的样本 ${x_1,x_2,⋯,x_N }$，证明其均值 ${\hat {\mu }}_{N} =\frac {1}{N}{\textstyle \sum_{n=1}^{N} x_i } $ 是高斯均值参数 $μ$的无偏估计，而样本的方差 $\hat{\sigma }_{N}^{2}=\frac{1}{N} {\textstyle \sum_{n=1}^{N}(x_i -\hat{\mu }_{N}^2}$ 是方差参数 $\sigma^{2}$的有偏估计。<br>**答**（1）均值估计： 
-
+**问题5.1**  令正态分布 $N(μ,σ^2)$的样本 ${x_1,x_2,⋯,x_N }$，证明其均值
+<img src="images/5.1.2.5jpg" width="150" />
+${\hat {\mu }}_{N} =\frac {1}{N}{\textstyle \sum_{n=1}^{N} x_i } $ 是高斯均值参数 $μ$的无偏估计，而样本的方差
+<img src="images/5.1.2.6jpg" width="150" />
+$\hat{\sigma }_{N}^{2}=\frac{1}{N} {\textstyle \sum_{n=1}^{N}(x_i -\hat{\mu }_{N}^2}$ 是方差参数 $\sigma^{2}$的有偏估计。<br>**答**（1）均值估计： 
+<p align="center">
+  <img src="images/5.1.1.jpg" width="500" />
+</p>
+ 
 $$
 E(\mu )=E(\frac{1}{N}\sum_{j=1}^{N}x_j )
 \\
@@ -165,18 +166,22 @@ E(\sigma ^{2})=E(\frac{1}{N}\sum_{j=1}^{N}(x_j -\mu )^{2} )
 $$
 
 由于 
-
-$$
-E(x_j^2)=\hat{\sigma }_{N}^{2}+\hat{\mu }_{N}^{2} 
-<img/>
-$$
-
-$$
-E(x_j^2)=\hat{\sigma }_{N}^{2}+\hat{\mu }_{N}^{2}
-<img/>
-$$
-
-<br>所以 $E(x_j^2 )=\hat{\sigma }_{N}^{2}+\hat{\mu }_{N}^{2}$。<br>又有 $E(\mu^{2} )=D(\mu )+[E(\mu )]^2=D(\frac{1}{N}\sum_{j=1}^{N}x_j)+[E(\mu )]^2=\frac{1}{N^2}\sum_{j=1}^{N}D(x_j)+\hat{\mu}_{N}^{2}=\frac{\hat{\sigma }_{N}^{2}}{N}+ \hat{\mu }_{N}^{2}$。<br>因此， $E(\sigma^{2})=\hat{\sigma}_{N}^{2}+\hat{\mu }_{N}^{2}-\hat{\mu }_{N}^{2}-\frac{\hat{\sigma }_{N}^{2}}{N}=\frac{N-1}{N}\hat{\sigma}_{N}^{2}$，样本方差是高斯方差参数的有偏估计。<br>
+<p align="center">
+  <img src="images/5.1.2.2.jpg" width="300" />
+</p>
+<br>所以
+<p align="center">
+  <img src="images/5.1.2.1.jpg" width="150" />
+</p>
+<br>又有
+<p align="center">
+  <img src="images/5.1.2.3.jpg" width="550" />
+</p>
+<br>因此， 
+<p align="center">
+  <img src="images/5.1.2.4.jpg" width="150" />
+</p>
+综上，样本方差是高斯方差参数的有偏估计。<br>
 
 **问题6.1**  在梯度迭代计算中，节点拓扑排序可由深度优先（Depth First Search，DFS）及宽度优先方法（Breadth First Search，BFS）实现，二种方法分别如何实现？<br>**答**：（1）深度优先搜索会沿着一条路径一直搜索下去，在无法继续搜索时回退到刚刚访问过的结点，深度优先搜索的本质就是持续搜索，遍历所有可能的情况，每次一条路走到底。<br>（2）宽度优先搜索是从初始节点开始，应用产生式规则和控制策略生成第一层结点，同时检查目标结点是否在这些生成的结点中。若没有，再用产生式规则将所有第一层结点逐一拓展，得到第二层结点，并逐一检查第二层结点是否包含目标结点。若没有，再用产生式规则拓展第二层结点。如此依次拓展检查下去，直至发现目标结点为止。如果拓展完所有结点，都没有发现目标结点，则问题无解。<br>
 
