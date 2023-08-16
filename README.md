@@ -135,7 +135,22 @@ EM算法的目标是寻找一个合适的模型参数 $θ$使得 $P(X|θ)$尽可
 
 **问题4.5**  解释一下为什么 ${\sum_{i} (\int Q_i (Z_i )\ln Q_i (Z_i )dZ_i )}\_{Q_{-i} (Z_{-i})}=\sum_{i}\int Q_i (Z_i)\ln Q_i (Z_i)dZ_i $从而 $L(Q(Z))=\sum_{i}\int Q_{i}(Z_i)\ln Q_i ^{\ast } (Z_i)dZ_i+\sum_{i}\sum_{i}\int Q_i (Z_i)\ln Q_i (Z_i)dZ_i+\ln C=-D_{KL}(Q_i (Z_i)||Q_i ^{\ast }(Z_i)+H(Q_{i-1}(Z_{i-1})) +C$。<br>**答**：。<br>
 
-**问题5.1**  令正态分布 $N(μ,σ^2)$的样本 ${x_1,x_2,⋯,x_N }$，证明其均值 ${\hat {\mu }}_{N} =\frac {1}{N}{\textstyle \sum_{n=1}^{N} x_i } $ 是高斯均值参数 $μ$的无偏估计，而样本的方差 $\hat{\sigma }_{N}^{2}=\frac{1}{N} {\textstyle \sum_{n=1}^{N}(x_i -\hat{\mu }_{N}^2}$ 是方差参数 $\sigma^{2}$的有偏估计。<br>**答**（1）均值估计： $E(\mu )=E(\frac {1}{N} \sum_{j=1}^{N}x_j )=\frac{1}{N}E(\sum_{j=1}^{N}x_j )=\frac{1}{N}\sum_{j=1}^{N}E(x_j)=\frac{1}{N}\cdot N\cdot \hat{\mu }_{N}=\hat{\mu }_{N}$，样本均值是高斯均值参数的无偏估计。<br>
+**问题5.1**  令正态分布 $N(μ,σ^2)$的样本 ${x_1,x_2,⋯,x_N }$，证明其均值 ${\hat {\mu }}_{N} =\frac {1}{N}{\textstyle \sum_{n=1}^{N} x_i } $ 是高斯均值参数 $μ$的无偏估计，而样本的方差 $\hat{\sigma }_{N}^{2}=\frac{1}{N} {\textstyle \sum_{n=1}^{N}(x_i -\hat{\mu }_{N}^2}$ 是方差参数 $\sigma^{2}$的有偏估计。<br>**答**（1）均值估计： 
+
+$$
+E(\mu )=E(\frac{1}{N}\sum_{j=1}^{N}x_j )
+\\
+=\frac{1}{N}E(\sum_{j=1}^{N}x_j )
+\\
+=\frac{1}{N}\sum_{j=1}^{N}E(x_j)
+\\
+=\frac{1}{N}\cdot N\cdot \hat{\mu }_{N}
+\\
+=\hat{\mu }_{N} 
+<img/>
+$$
+
+$E(\mu )=E(\frac {1}{N} \sum_{j=1}^{N}x_j )=\frac{1}{N}E(\sum_{j=1}^{N}x_j )=\frac{1}{N}\sum_{j=1}^{N}E(x_j)=\frac{1}{N}\cdot N\cdot \hat{\mu }_{N}=\hat{\mu }_{N}$，样本均值是高斯均值参数的无偏估计。<br>
 （2）方差估计： 
 
 $$
