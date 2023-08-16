@@ -3,23 +3,17 @@
 **Lianfa Li, 2022, Deep Learning: Principles and Geoscience Analysis of Remote Sensing (in Chinese), Science Press(https://zhuanlan.zhihu.com/p/591913706)**
 
 <img src="https://render.githubusercontent.com/render/math?math=x_{1,2} = \frac{-b \pm \sqrt{b^2-4ac}}{2b}">
-<img src="https://render.githubusercontent.com/render/math?math=x = -1 - &mu; "> 
-hello are you ?? <img src="https://render.githubusercontent.com/render/math?math=e^{i \pi} = -1"> 
-<img src="https://render.githubusercontent.com/render/math?math={\sum_{d=0}^{d_{max}}}">
-<img src="https://render.githubusercontent.com/render/math?math=x_{1,2} = \frac{-b \pm \sqrt{b^2-4ac}}{2b}"> 
-<img src="https://render.githubusercontent.com/render/math?math=\begin{equation}\sum_{n=0}^\infty\frac{1}{2^n}\end{equation}">
 
 $$
-E[x]=1\cdot \mu +0\cdot (1-\mu )=\mu 
+P(2)=P(1)\begin{bmatrix}0.2&0.8&0&0 \\
+0&0&1&0 \\ 
+0.6&0&0&0.4 \\ 
+0.9&0.1&0&0\end{bmatrix}=\begin{bmatrix}0.43&0.23&0.25&0.10\end{bmatrix}\begin{bmatrix}0.2&0.8&0&0\\
+0&0&1&0\\
+0.6&0&0&0.4\\
+0.9&0.1&0&0\end{bmatrix}=\begin{bmatrix}0.33&0.35&0.23&0.10\end{bmatrix} 
 <img/>
 $$
-
-$$ 1-\mu <img/> $$
-you are $$ 
-Var[x]=(1 - \mu ) 
-<img/> 
-$$
-
 
 ### **问题及答案（Problems and answers）**
 **问题1.1** 如何证明伯努利分布的均值及变差分别为式（1.11）与式（1.12）？<br>**答**：伯努利试验有两个可能的结果，即1和0，前者发生的概率为 $μ$，后者的概率为 $1-\mu$。则试验的期望值为 $E[x]=1\cdot \mu +0\cdot (1-\mu )=\mu$ ，该试验的方差则为 $Var[x]=(1-\mu )^{2}\cdot \mu + (0-\mu )^{2}\cdot (1-\mu )=\mu (1-\mu )$。<br>
@@ -28,12 +22,31 @@ $$
 
 **问题1.3**   试证明Box-Muller算法生成的输出符合标准高斯分布。<br>**答**：证明（1）假设变量 $x$和 $y$是[0,1]均匀分布的随机数，且 $x$和 $y$彼此相互独立，则构造随机数 $g=\sqrt[2]{-2\log{x}}\cos(2y\pi)$和 $h=\sqrt[2]{-2\log{x}}\sin(2y\pi)$；<br>（2）易知， $g^2+h^2=-2\log{x}$为符合指数分布的随机数；<br>（3）由定理“两个相互独立的高斯分布随机数的平方和服从指数分布”可知， $g$和 $h$为两个相互独立且正交的、均值为0、方差为1的高斯分布随机数，即符合标准高斯分布。<br>
 
-**问题3.1**   令 $X_i （i=1,2,…,n）$独立同分布（均值： $μ$；变差： $σ^2$），证明<img src="https://render.githubusercontent.com/render/math?math=Y_{n}=\frac{\sum_{i=1}^{n} X_{i}}{n} \sim N(\mu ,\frac{\sigma ^{2}}{n})"> $Y_{n}=\frac{\sum_{i=1}^{n} X_{i}}{n} \sim N(\mu ,\frac{\sigma ^{2}}{n})$。<br>**答**（1）由独立同分布的中心极限定理得到， $Z_{n}=\frac{\sum_{i=1}^{n} -n\mu }{\sigma \sqrt{n} }f\sim N(0,1)$。<br>（2）则 $\sum_{i=1}^{n} X_{i}=\sigma \sqrt{n}Z_{n}+n\mu$近似地服从正态分布 $N(n\mu ,n\sigma ^{2})$。<br>（3）由此得出， $E(\frac{\sum_{i=1}^{n} X_{i}}{n})=\frac{E(\sum_{i=1}^{n} X_{i})}{n}=\mu$， $D（\frac{\sum_{i=1}^{n} X_{i}}{n}）=D(E(\sum_{i=1}^{n} X_{i})/n^2 =σ^2/n$，即 $Y_{n}=\frac{\sum_{i=1}^{n} X_{i}}{n} \sim N(\mu ,\frac{\sigma ^{2}}{n})$。<br>
+**问题3.1**   令 $X_i （i=1,2,…,n）$独立同分布（均值： $μ$；变差： $σ^2$），证明 $Y_{n}=\frac{ \sum_{i=1}^{n} X_{i}}{n} \sim N(\mu ,\frac{\sigma ^{2}}{n})$。<br>**答**（1）由独立同分布的中心极限定理得到， $Z_{n}=\frac{\sum_{i=1}^{n} -n\mu }{\sigma \sqrt{n} }f\sim N(0,1)$。<br>（2）则 $\sum_{i=1}^{n} X_{i}=\sigma \sqrt{n}Z_{n}+n\mu$近似地服从正态分布 $N(n\mu ,n\sigma ^{2})$。<br>（3）由此得出， $E(\frac{\sum_{i=1}^{n} X_{i}}{n})=\frac{E(\sum_{i=1}^{n} X_{i})}{n}=\mu$， $D（\frac{\sum_{i=1}^{n} X_{i}}{n}）=D(E(\sum_{i=1}^{n} X_{i})/n^2 =σ^2/n$，即 $Y_{n}=\frac{\sum_{i=1}^{n} X_{i}}{n} \sim N(\mu ,\frac{\sigma ^{2}}{n})$。<br>
 
 **问题3.2**  在重要性抽样中，为什么采用估计变差最小作为选择代理概率函数 $q(x)$的标准？<br>**答**：重要性采样改变原来的旧分布，用新的分布去采集样本然后求出目标期望，但前提条件是两个分布不能相差太大，因此采用估计变差最小作为选择 $q(x)$的标准。<br>
 
-**问题3.3**  设置不同的初始参数，验证一下上面实例中最后的结果是否稳定？<br>**答**：假设初始状态为（0.25，0.25，0.25，0.25）：<br>（1）第一次状态转移结果为$P(1)=\begin{bmatrix}0.25&0.25&0.25&0.25\end{bmatrix}\begin{bmatrix}0.2&0.8&0&0\\0&0&1&0\\0.6&0&0&0.4\\0.9&0.1&0&0\end{bmatrix}=\begin{bmatrix}0.43&0.23&0.25&0.10\end{bmatrix}$；<br>（2）第二次状态转移结果为 
- $P(2)=P(1)\begin{bmatrix}0.2&0.8&0&0\\0&0&1&0\\0.6&0&0&0.4\\0.9&0.1&0&0\end{bmatrix}=\begin{bmatrix}0.43&0.23&0.25&0.10\end{bmatrix}\begin{bmatrix}0.2&0.8&0&0\\0&0&1&0\\0.6&0&0&0.4\\0.9&0.1&0&0\end{bmatrix}=\begin{bmatrix}0.33&0.35&0.23&0.10\end{bmatrix}$；<br>（3）多次迭代之后，即 
+**问题3.3**  设置不同的初始参数，验证一下上面实例中最后的结果是否稳定？<br>**答**：假设初始状态为（0.25，0.25，0.25，0.25）：<br>（1）第一次状态转移结果为
+$$
+P(1)=\begin{bmatrix}0.25&0.25&0.25&0.25\end{bmatrix}\begin{bmatrix}0.2&0.8&0&0 \\
+0&0&1&0\\
+0.6&0&0&0.4\\
+0.9&0.1&0&0\end{bmatrix}=\begin{bmatrix}0.43&0.23&0.25&0.10\end{bmatrix} 
+<img/>
+$$；<br>（2）第二次状态转移结果为
+
+$$
+P(2)=P(1)\begin{bmatrix}0.2&0.8&0&0 \\
+0&0&1&0 \\ 
+0.6&0&0&0.4 \\ 
+0.9&0.1&0&0\end{bmatrix}=\begin{bmatrix}0.43&0.23&0.25&0.10\end{bmatrix}\begin{bmatrix}0.2&0.8&0&0\\
+0&0&1&0\\
+0.6&0&0&0.4\\
+0.9&0.1&0&0\end{bmatrix}=\begin{bmatrix}0.33&0.35&0.23&0.10\end{bmatrix} 
+<img/>
+$$
+
+；<br>（3）多次迭代之后，即 
  $P(n)=P(2)\begin{bmatrix}0.2&0.8&0&0\\0&0&1&0\\0.6&0&0&0.4\\0.9&0.1&0&0\end{bmatrix} \begin{bmatrix}0.2&0.8&0&0\\0&0&1&0\\0.6&0&0&0.4\\0.9&0.1&0&0\end{bmatrix}\dots \begin{bmatrix}0.2&0.8&0&0\\0&0&1&0\\0.6&0&0&0.4\\0.9&0.1&0&0\end{bmatrix}$，结果收敛到（0.33，0.28，0.28，0.11）；<br>（4）综上所述，上面实例中最后的结果是稳定的。<br>
 
 **问题3.4**  采用特征值及特征矢量的方法求上面实例中的稳定解。<br>**答**：（1）平稳分布满足 $Pπ=π$，与特征方程 $Ax=λx$联系可知，平稳分布$π$就是转移矩阵 $P$的特征值为1对应的特征向量（归一化），因此直接对转移矩阵进行特征分解来求得平稳分布。<br>（2）对矩阵 $P$进行特征值分解： $P=Q\Lambda Q^{-1}$，对角矩阵$Λ$的对角线上的元素即为 $P$的特征值结果： $\Lambda =\begin{pmatrix}\lambda _{1} &0&\dots &0\\0&\lambda _{2} &\dots &0\\\vdots \\0&0&\dots &\lambda _{k} \end{pmatrix}$， $\lambda _{i} \le 1$;$i=1,2,\dots ,k$。<br>（3）将 $P$的分解结果代入$\pi _{t+1}= \pi _{t}P^{t} =\pi _{t}(Q\Lambda Q^{-1})^{t}=\pi _{t}(Q\Lambda Q^{-1}Q\Lambda Q^{-1}\dots Q\Lambda Q^{-1})$，由于 $Q^{-1}Q=E$，即单位矩阵，因此 $\pi _{t+1}=\pi _{t}Q\begin{pmatrix}\lambda _{1} &0&\dots &0\\0&\lambda _{2} &\dots &0\\\vdots \\0&0&\dots &\lambda _{k} \end{pmatrix}Q^{-1}$。<br>（4）转移次数足够多的时候，即$t$足够大的时候： $\lim_{t \to \infty}\lambda _{i}^{t}=0(i=1,2,\dots ,k)$。<br>（5）假设转移次数分别执行了 $m$次和 $m+1$次，它们对应随机变量的概率分布表示如下： $\pi _{m+1}=\pi _{m}Q\Lambda ^{m}Q^{-1}$， $\pi _{m+2}=\pi _{m+1}Q\Lambda ^{m+1}Q^{-1}$，而此时的对角阵 $\Lambda ^{m}$， $\Lambda ^{m+1}$中的各元素均无限趋近于0（特征值为1的结果除外）。<br>（6）因此，在 $m$足够大时： $\Lambda ^{m}=\Lambda ^{m+1}$，从而 $\pi _{m+1}=\pi _{m+2}$。<br>（7）基于以上推导过程，转移次数 $t>m$时： $\pi _{m+1}=\pi _{m+2}=⋯=\pi _{end}$， $\pi _{end}$即为最终的平稳状态。<br>
@@ -48,7 +61,8 @@ $$
 
 **问题3.9**  如何抽样 $x_{1}^{(t+1)}\sim p(x_{1}\mid x_{2}^{(t)},x_{3}^{(t)},\dots ,x_{n}^{(t)})$？<br>**答**：高维Gibbs采样的过程为依次轮换坐标轴进行采样， $x_{2}^{(t)},x_{3}^{(t)},\dots ,x_{n}^{(t)})$即为更新样本点 $x_{1}$维度的数据：固定 $x_{1}$后进行采样，得到 $x_{1}$维度新的值 $x_{1}^{(t+1)}$。<br>
 
-**问题3.10**  令A，B，C代表3枚硬币，投掷这些硬币正面出现的概率分别是$π$，$p$和$q$。反复进行以下操作：掷A，根据其结果选出硬币B或C，正面选B，反面选C；然后投掷选中硬币，正面记作1，反面记作0。独立地重复n次（n=10)，结果为1111110000。只能观察投掷硬币的结果，而不知其过程，估计这三个参数$π$，$p$和$q$ (Vapnik，1998)。尝试一下如何采用Gibbs抽样获得估计结果。<br>**答**：（1）记最终的观测结果为$\overrightarrow{x}=\left \{ x_1,x_2,\dots ,x_n \right \}$，每次观测结果使用的硬币为$\overrightarrow{z}=\left \{ z_1,z_2,\dots ,z_n \right \}$，对于硬币$k$出现正反面符合伯努利分布，记作$P(x\mid p_{k})=p_{k}^{x}(1-p_{k})^{1-x}$，其中随机变量的$x$的取值为0、1。<br>![](images/2.jpg#pic_center)<br>（2）这个试验主要分为两个过程。一是$\overrightarrow{\alpha }\longrightarrow \theta \longrightarrow z_m$：投掷硬币A，生成观测结果中第$m$次观测结果所使用的硬币编号$k$；二是$\overrightarrow{\beta }\longrightarrow \phi _{k}  \longrightarrow x_m\mid z_m=k$：生成第$m$次观测结果时，选择编号为$k$的硬币，投掷这枚硬币，生成观测结果$x_m$。<br>（3）第一个过程是二项分布，有$P(\overrightarrow{z}\mid \theta )=\theta _{k}(1-\theta )^{n-k}$，$k$为硬币A正面朝上的次数。<br>（4）因为$P(\overrightarrow{z}\mid \theta )\sim B(n,p_A)$，可以取参数$\theta \sim Beta(\theta ,\overrightarrow{\alpha })$，组成伯努利-Beta共轭分布，则后验分布为：$P(\theta \mid \overrightarrow{z})\sim Beta(\theta \mid \alpha _1+k,\alpha _2+n-k)$，$P(\overrightarrow{z}\mid \overrightarrow{\alpha })=\int P(\overrightarrow{z}\mid \theta )P(\theta \mid \overrightarrow{\alpha })d\theta =\frac{B(\alpha _1+k,\alpha _2+n-k)}{B(\alpha _1,\alpha _2)}$。<br>（5）我们取参数θ的值为在后验分布下的期望，则$\theta =E(Beta(\theta \mid \alpha _1+k,\alpha _2+n-l))=\frac{\alpha _1+k}{(\alpha _1+k)(\alpha _2+n-k)}$。<br>（6）$n_1$和$n_2$分别表示使用硬币B和硬币C的次数，如果已知每次观测结果来自哪枚硬币，任何两次观测结果都是可交换的，将来自同一枚硬币的观测结果放在一起：$\overrightarrow{x}=(\overrightarrow{x}_B,\overrightarrow{x}_C)$，$\overrightarrow{z}=(\overrightarrow{z}_B,\overrightarrow{z}_C)$。<br>（7）同上可知，对于来自硬币$k$的观测结果，$P(\overrightarrow{x}_k\mid \phi _{k})\sim B(n_k,\phi _{k})$，参数$\phi _{k}\sim Beta(\phi _{k}\mid \overrightarrow{\beta }_k)$，组成二项-Beta共轭分布，则后验分布：$P(\phi _{k}\mid \overrightarrow{x}_k)\sim Beta(\phi _{k}\mid \beta _{k,1}+n_{k,1},\phi _{k}\mid \beta _{k,2}+n_{k,2})$，$P(\overrightarrow{x}_k\mid \overrightarrow{z}_k,\overrightarrow{\beta }_k)=\frac{B(\beta _{k,1}+n_{k,1},\beta _{k,2}+n_{k,2})}{B(\beta _{k,1},\beta _{k,2})} k\in \left \{ B,C \right \}$，$n_{k,1}$和$n_{k,2}$分别是$k$硬币出现正反面的次数。<br>（8）参数的值为$\phi _{k}=\frac{\beta _{k,1}+n_{k,1}}{(\beta _{k,1}+n_{k,1})+(\beta _{k,2}+n_{k,2})}$，因此，$P(\overrightarrow{x}\mid \overrightarrow{z},\overrightarrow{\beta })=P(\overrightarrow{x}_B\mid \overrightarrow{z}_B,\overrightarrow{\beta }_B)=P(\overrightarrow{x}_C\mid \overrightarrow{z}_C,\overrightarrow{\beta }_C)=\frac{B(\beta _{B,1}+k_{B},\beta _{B,2}+n_B-k_{B})}{B(\beta _{B,1},\beta _{B,2})}\frac{B(\beta _{C,1}+k_{C},\beta _{C,2}+n_C-k_{C})}{B(\beta _{C,1},\beta _{C,2})}$，综上，可以得到联合分布$p(\overrightarrow{x},\overrightarrow{z}\mid \overrightarrow{\alpha },\overrightarrow{\beta })=p(\overrightarrow{z}\mid \overrightarrow{\alpha })p(\overrightarrow{x}\mid \overrightarrow{z},\overrightarrow{\beta })=\frac{B(\alpha _1+k,\alpha _2+n-k)}{B(\alpha _1,\alpha _2)}\frac{B(\beta _{B,1}+k_{B},\beta _{B,2}+n_B-k_{B})}{B(\beta _{B,1},\beta _{B,2})}\frac{B(\beta _{C,1}+k_{C},\beta _{C,2}+n_C-k_{C})}{B(\beta _{C,1}, \beta _{C,2})}$。<br>（9）由于$\overrightarrow{x}$是观测到的已知变量，只有$\overrightarrow{z}$是隐含的变量，所以真正需要采样的是条件分布$p(\overrightarrow{z}\mid \overrightarrow{x})$。根据Gibbs采样算法的要求，需求得任意一个坐标轴$i$对应的条件分布$p(z_i=k\mid \overrightarrow{z_{\neg i}},\overrightarrow{x})$。<br>（10）假设已经观测到$x_i=t$，根据贝叶斯公式可以得到$p(z_i=k\mid \overrightarrow{z_{\neg i}},\overrightarrow{x})=p(z_i=k\mid x_i=t,\overrightarrow{z_{\neg i}},\overrightarrow{x_{\neg i}})=\frac{p(z_i=k,x_i=t\mid \overrightarrow{z_{\neg i}},\overrightarrow{x_{\neg i}})}{p(x_i=t\mid \overrightarrow{z_{\neg i}},\overrightarrow{x_{\neg i}})}\propto p(z_i=k,x_i=t\mid \overrightarrow{z_{\neg i}},\overrightarrow{x_{\neg i}})$。去掉第$i$次观测值并不影响其他共轭结构，其他共轭结构与$z_i=k$，$x_i=t$是相互独立的，因此$p(z_i=k\mid \overrightarrow{z_{\neg i}},\overrightarrow{x})\propto p(z_i=k,x_i=t\mid \overrightarrow{z_{\neg i}},\overrightarrow{x_{\neg i}})=p(z_i=k,x_i=t\mid \overrightarrow{z_{k,\neg i}},\overrightarrow{x_{k,\neg i}},\overrightarrow{z_{\neg k}},\overrightarrow{x_{\neg k}})=p(z_i=k,x_i=t\mid \overrightarrow{z_{k,\neg i}},\overrightarrow{x_{k,\neg i}})$，$\overrightarrow{x_{k,\neg i}}$表示去除第$i$次观测所属k硬币的观测值。<br>（11）因此，得到Gibbs采样公式：$P(z_i=k\mid \overrightarrow{z_{\neg i}},\overrightarrow{x})\propto p(z_i=k,x_i=t\mid \overrightarrow{z_{k,\neg i}},\overrightarrow{x_{k,\neg i}})=\int P(z_i=k,x_i=t,\theta ,\phi _{k}\mid \overrightarrow{z_{k,\neg i}},\overrightarrow{x_{k,\neg i}})d\theta d\phi _{k}=E(\theta )E(\phi _{k})=\frac{\alpha _{1}+n_{(k,\neg i),1}}{(\alpha _{1}+n_{(k,\neg i),1})+(\alpha _{2}+n_{(k,\neg i),2})}\frac{\beta _{k,1}+n_{(k,\neg i),1}}{(\beta _{k,1}+n_{(k,\neg i),1})+(\beta _{k,2}+n_{(k,\neg i),2})}$。<br>（12）利用python实现Gibbs采样过程，得到最终的参数估计结果：$π$=0.75，$p$=0.7，$q$=0.75。<br>
+**问题3.10**  令A，B，C代表3枚硬币，投掷这些硬币正面出现的概率分别是 $π$， $p$和 $q$。反复进行以下操作：掷A，根据其结果选出硬币B或C，正面选B，反面选C；然后投掷选中硬币，正面记作1，反面记作0。独立地重复 $n$次（n=10)，结果为1111110000。只能观察投掷硬币的结果，而不知其过程，估计这三个参数 $π$， $p$和 $q$ (Vapnik，1998)。尝试一下如何采用Gibbs抽样获得估计结果。<br>**答**：（1）记最终的观测结果为 $\overrightarrow{x}={ x_1,x_2,\dots ,x_n }$，每次观测结果使用的硬币为 $\overrightarrow{z}={ z_1,z_2,\dots ,z_n }$，对于硬币 $k$出现正反面符合伯努利分布，记作 $P(x\mid p_{k})=p_{k}^{x}(1-p_{k})^{1-x}$，其中随机变量的 $x$的取值为0、1。<br>
+![](images/2.jpg#pic_center)<br>（2）这个试验主要分为两个过程。一是 $\overrightarrow{\alpha }\longrightarrow \theta \longrightarrow z_m$：投掷硬币A，生成观测结果中第 $m$次观测结果所使用的硬币编号$k$；二是 $\overrightarrow{\beta }\longrightarrow \phi _{k}  \longrightarrow x_m\mid z_m=k$：生成第 $m$次观测结果时，选择编号为 $k$的硬币，投掷这枚硬币，生成观测结果 $x_m$。<br>（3）第一个过程是二项分布，有 $P(\overrightarrow{z}\mid \theta )=\theta _{k}(1-\theta )^{n-k}$， $k$为硬币A正面朝上的次数。<br>（4）因为 $P(\overrightarrow{z}\mid \theta )\sim B(n,p_A)$，可以取参数 $\theta \sim Beta(\theta ,\overrightarrow{\alpha })$，组成伯努利-Beta共轭分布，则后验分布为： $P(\theta \mid \overrightarrow{z})\sim Beta(\theta \mid \alpha _1+k,\alpha _2+n-k)$， $P(\overrightarrow{z}\mid \overrightarrow{\alpha })=\int P(\overrightarrow{z}\mid \theta )P(\theta \mid \overrightarrow{\alpha })d\theta =\frac{B(\alpha _1+k,\alpha _2+n-k)}{B(\alpha _1,\alpha _2)}$。<br>（5）我们取参数θ的值为在后验分布下的期望，则 $\theta =E(Beta(\theta \mid \alpha _1+k,\alpha _2+n-l))=\frac{\alpha _1+k}{(\alpha _1+k)(\alpha _2+n-k)}$。<br>（6） $n_1$和 $n_2$分别表示使用硬币B和硬币C的次数，如果已知每次观测结果来自哪枚硬币，任何两次观测结果都是可交换的，将来自同一枚硬币的观测结果放在一起： $\overrightarrow{x}=(\overrightarrow{x}_B,\overrightarrow{x}_C)$， $\overrightarrow{z}=(\overrightarrow{z}_B,\overrightarrow{z}_C)$。<br>（7）同上可知，对于来自硬币 $k$的观测结果， $P(\overrightarrow{x}_k\mid \phi _{k})\sim B(n_k,\phi _{k})$，参数 $\phi _{k}\sim Beta(\phi _{k}\mid \overrightarrow{\beta }_k)$，组成二项-Beta共轭分布，则后验分布： $P(\phi _{k}\mid \overrightarrow{x}_k)\sim Beta(\phi _{k} \mid \beta _{k,1}+n_{k,1},\phi _{k}\mid \beta _{k,2}+n_{k,2})$， $P(\overrightarrow{x}_k\mid \overrightarrow{z}_k,\overrightarrow{\beta }_k)=\frac{B(\beta _{k,1}+n_{k,1},\beta _{k,2}+n_{k,2})}{B(\beta _{k,1},\beta _{k,2})} k\in \left \{ B,C \right \}$， $n_{k,1}$和 $n_{k,2}$分别是$k$硬币出现正反面的次数。<br>（8）参数的值为 $\phi _{k}=\frac{\beta _{k,1}+n_{k,1}}{(\beta _{k,1}+n_{k,1})+(\beta _{k,2}+n_{k,2})}$，因此， $P(\overrightarrow{x}\mid \overrightarrow{z},\overrightarrow{\beta })=P(\overrightarrow{x}_B\mid \overrightarrow{z}_B,\overrightarrow{\beta }_B)=P(\overrightarrow{x}_C\mid \overrightarrow{z}_C,\overrightarrow{\beta }_C)=\frac{B(\beta _{B,1}+k_{B},\beta _{B,2}+n_B-k_{B})}{B(\beta _{B,1},\beta _{B,2})}\frac{B(\beta _{C,1}+k_{C},\beta _{C,2}+n_C-k_{C})}{B(\beta _{C,1},\beta _{C,2})}$，综上，可以得到联合分布 $p(\overrightarrow{x},\overrightarrow{z}\mid \overrightarrow{\alpha },\overrightarrow{\beta })=p(\overrightarrow{z}\mid \overrightarrow{\alpha })p(\overrightarrow{x}\mid \overrightarrow{z},\overrightarrow{\beta })=\frac{B(\alpha _1+k,\alpha _2+n-k)}{B(\alpha _1,\alpha _2)}\frac{B(\beta _{B,1}+k_{B},\beta _{B,2}+n_B-k_{B})}{B(\beta _{B,1},\beta _{B,2})}\frac{B(\beta _{C,1}+k_{C},\beta _{C,2}+n_C-k_{C})}{B(\beta _{C,1}, \beta _{C,2})}$。<br>（9）由于 $\overrightarrow{x}$是观测到的已知变量，只有 $\overrightarrow{z}$是隐含的变量，所以真正需要采样的是条件分布 $p(\overrightarrow{z}\mid \overrightarrow{x})$。根据Gibbs采样算法的要求，需求得任意一个坐标轴 $i$对应的条件分布 $p(z_i=k\mid \overrightarrow{z_{\neg i}},\overrightarrow{x})$。<br>（10）假设已经观测到 $x_i=t$，根据贝叶斯公式可以得到 $p(z_i=k\mid \overrightarrow{z_{\neg i}},\overrightarrow{x})=p(z_i=k\mid x_i=t,\overrightarrow{z_{\neg i}},\overrightarrow{x_{\neg i}})=\frac{p(z_i=k,x_i=t\mid \overrightarrow{z_{\neg i}},\overrightarrow{x_{\neg i}})}{p(x_i=t\mid \overrightarrow{z_{\neg i}},\overrightarrow{x_{\neg i}})}\propto p(z_i=k,x_i=t\mid \overrightarrow{z_{\neg i}},\overrightarrow{x_{\neg i}})$。去掉第$i$次观测值并不影响其他共轭结构，其他共轭结构与$z_i=k$，$x_i=t$是相互独立的，因此$p(z_i=k\mid \overrightarrow{z_{\neg i}},\overrightarrow{x})\propto p(z_i=k,x_i=t\mid \overrightarrow{z_{\neg i}},\overrightarrow{x_{\neg i}})=p(z_i=k,x_i=t\mid \overrightarrow{z_{k,\neg i}},\overrightarrow{x_{k,\neg i}},\overrightarrow{z_{\neg k}},\overrightarrow{x_{\neg k}})=p(z_i=k,x_i=t\mid \overrightarrow{z_{k,\neg i}},\overrightarrow{x_{k,\neg i}})$，$\overrightarrow{x_{k,\neg i}}$表示去除第$i$次观测所属k硬币的观测值。<br>（11）因此，得到Gibbs采样公式：$P(z_i=k\mid \overrightarrow{z_{\neg i}},\overrightarrow{x})\propto p(z_i=k,x_i=t\mid \overrightarrow{z_{k,\neg i}},\overrightarrow{x_{k,\neg i}})=\int P(z_i=k,x_i=t,\theta ,\phi _{k}\mid \overrightarrow{z_{k,\neg i}},\overrightarrow{x_{k,\neg i}})d\theta d\phi _{k}=E(\theta )E(\phi _{k})=\frac{\alpha _{1}+n_{(k,\neg i),1}}{(\alpha _{1}+n_{(k,\neg i),1})+(\alpha _{2}+n_{(k,\neg i),2})}\frac{\beta _{k,1}+n_{(k,\neg i),1}}{(\beta _{k,1}+n_{(k,\neg i),1})+(\beta _{k,2}+n_{(k,\neg i),2})}$。<br>（12）利用python实现Gibbs采样过程，得到最终的参数估计结果：$π$=0.75，$p$=0.7，$q$=0.75。<br>
 
 **问题3.11**  参考破解凯撒密码的论文，体会MCMC的应用(Diaconis，2008)。<br>**答**：（1）化学和物理方面：从点阵规范理论到硬盘，MCMC计算是化学和物理的支柱；可以利用MCMC算法计算普通液体的性质，计算结果几乎和计算稀气体和谐波固体的性质一样确定。<br>（2）生物学方面：基于MCMC算法研究某地区赤杨、铁山纯林和混交林密度对生长和优势度的影响等。<br>（3）统计学方面：基于MCMC算法，针对多种超市商品日销数额的多步预测，预测个体顾客交易，并预测每笔交易的商品数量等；将MCMC算法应用于粒子滤波器领域及工程应用中。<br>（4）理论研究方面：许多问题，如计算一个矩阵的恒量或一个凸多面体的体积的精确答案可能需要指数级的时间，但是只要能找到一个快速混合马尔可夫链来随机生成问题实例，就可以在多项式次数的操作中找到可证明的精确近似。<br>
 
@@ -149,12 +163,3 @@ Online address: https://pypi.org/project/resmcseg
 
 **6.	一种提高海量空间数据处理效率的方法 （发明专利）**<br>A method to improve the processing efficiency of massive spatial data (invention patent)<br>
 ![](images/9.jpg#pic_center)<br>
-
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {inlineMath: [ ['$', '$'] ],
-        displayMath: [ ['$$', '$$']]}
-});
-</script>
-
-<script type="text/javascript" src="https://cdn.bootcss.com/mathjax/2.7.2/MathJax.js?config=default"></script>
