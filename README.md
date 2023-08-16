@@ -1,6 +1,7 @@
 <p align="center">
   <img   src="images/1.jpg">
 </p>
+
 **Lianfa Li, 2022, Deep Learning: Principles and Geoscience Analysis of Remote Sensing (in Chinese), Science Press(https://zhuanlan.zhihu.com/p/591913706)**
 
 ### **问题及答案（Problems and answers）**
@@ -10,7 +11,7 @@
 
 **问题1.3**   试证明Box-Muller算法生成的输出符合标准高斯分布。<br>**答**：证明（1）假设变量 $x$和 $y$是[0,1]均匀分布的随机数，且 $x$和 $y$彼此相互独立，则构造随机数 $g=\sqrt[2]{-2\log{x}}\cos(2y\pi)$和 $h=\sqrt[2]{-2\log{x}}\sin(2y\pi)$；<br>（2）易知， $g^2+h^2=-2\log{x}$为符合指数分布的随机数；<br>（3）由定理“两个相互独立的高斯分布随机数的平方和服从指数分布”可知， $g$和 $h$为两个相互独立且正交的、均值为0、方差为1的高斯分布随机数，即符合标准高斯分布。<br>
 
-**问题3.1**   令 $X_i （i=1,2,…,n）$独立同分布（均值： $μ$；变差： $σ^2$），证明 $Y_{n}=\frac{ \sum_{i=1}^{n} X_{i}}{n} \sim N(\mu ,\frac{\sigma ^{2}}{n})$。<br>**答**（1）由独立同分布的中心极限定理得到， $Z_{n}=\frac{\sum_{i=1}^{n} -n\mu }{\sigma \sqrt{n} }f\sim N(0,1)$。<br>（2）则 $\sum_{i=1}^{n} X_{i}=\sigma \sqrt{n}Z_{n}+n\mu$近似地服从正态分布 $N(n\mu ,n\sigma ^{2})$。<br>（3）由此得出， $E(\frac{\sum_{i=1}^{n} X_{i}}{n})=\frac{E(\sum_{i=1}^{n} X_{i})}{n}=\mu$， $D（\frac{\sum_{i=1}^{n} X_{i}}{n}）=D(E(\sum_{i=1}^{n} X_{i})/n^2 =σ^2/n$，即 $Y_{n}=\frac{\sum_{i=1}^{n} X_{i}}{n} \sim N(\mu ,\frac{\sigma ^{2}}{n})$。<br>
+**问题3.1**   令 $X_i （i=1,2,…,n）$独立同分布（均值： $μ$；变差： $σ^2$），证明 $Y_{n}=\frac{ ∑_{i=1}^{n}X_{i}}{n} \sim N(\mu ,\frac{\sigma ^{2}}{n})$。<br>**答**（1）由独立同分布的中心极限定理得到， $Z_{n}=\frac{∑_{i=1}^{n} -n\mu }{\sigma \sqrt{n} }f\sim N(0,1)$。<br>（2）则 $∑_{i=1}^{n} X_{i}=\sigma \sqrt{n}Z_{n}+n\mu$近似地服从正态分布 $N(n\mu ,n\sigma ^{2})$。<br>（3）由此得出， $E(\frac{∑_{i=1}^{n} X_{i}}{n})=\frac{E(∑_{i=1}^{n} X_{i})}{n}=\mu$， $D（\frac{∑_{i=1}^{n} X_{i}}{n}）=D(E(∑_{i=1}^{n} X_{i})/n^2 =σ^2/n$，即 $Y_{n}=\frac{∑_{i=1}^{n} X_{i}}{n} \sim N(\mu ,\frac{\sigma ^{2}}{n})$。<br>
 
 **问题3.2**  在重要性抽样中，为什么采用估计变差最小作为选择代理概率函数 $q(x)$的标准？<br>**答**：重要性采样改变原来的旧分布，用新的分布去采集样本然后求出目标期望，但前提条件是两个分布不能相差太大，因此采用估计变差最小作为选择 $q(x)$的标准。<br>
 
@@ -77,7 +78,7 @@ $$
  
 <br>（4）转移次数足够多的时候，即 $t$足够大的时候： $\lim_{t \to \infty}\lambda _{i}^{t}=0(i=1,2,\dots ,k)$。<br>（5）假设转移次数分别执行了 $m$次和 $m+1$次，它们对应随机变量的概率分布表示如下： $\pi _{m+1}=\pi _{m}Q\Lambda ^{m}Q^{-1}$， $\pi _{m+2}=\pi _{m+1}Q\Lambda ^{m+1}Q^{-1}$，而此时的对角阵 $\Lambda ^{m}$， $\Lambda ^{m+1}$中的各元素均无限趋近于0（特征值为1的结果除外）。<br>（6）因此，在 $m$足够大时： $\Lambda ^{m}=\Lambda ^{m+1}$，从而 $\pi _{m+1}=\pi _{m+2}$。<br>（7）基于以上推导过程，转移次数 $t>m$时： $\pi _{m+1}=\pi _{m+2}=⋯=\pi _{end}$， $\pi _{end}$即为最终的平稳状态。<br>
 
-**问题3.5**  推导证明上式成立。<br>**答**：（1）由细致平稳条件 $\pi (i)P_{ij}=\pi (j)P_{ji}$可得， $\sum_{i=1}^{\infty }\pi (i)P_{ij}=\sum_{i=1}^{\infty }\pi (j)P_{ji}$。<br>（2）取 $j\to \infty$，此时 $π(j)$为稳定值，则 $\sum_{i=1}^{\infty }\pi (j)P_{ji}=\pi (j)\sum_{i=1}^{\infty }P_{ji}$。<br>（3）多次迭代后处于平稳状态，此时 $\sum_{i=1}^{\infty }\pi (i)P_{ij}=1$，则 $\pi (j)\sum_{i=1}^{\infty }P_{ij}=\pi (j)$，上式成立。<br>
+**问题3.5**  推导证明上式成立。<br>**答**：（1）由细致平稳条件 $\pi (i)P_{ij}=\pi (j)P_{ji}$可得， $∑_{i=1}^{\infty }\pi (i)P_{ij}=∑_{i=1}^{\infty }\pi (j)P_{ji}$。<br>（2）取 $j\to \infty$，此时 $π(j)$为稳定值，则 $∑_{i=1}^{\infty }\pi (j)P_{ji}=\pi (j)∑_{i=1}^{\infty }P_{ji}$。<br>（3）多次迭代后处于平稳状态，此时 $∑_{i=1}^{\infty }\pi (i)P_{ij}=1$，则 $\pi (j)∑_{i=1}^{\infty }P_{ij}=\pi (j)$，上式成立。<br>
 
 **问题3.6**  对于连续数据而言，在确定平稳分布恰好是 $p(x)$，没有先验知识的情况下如何设定状态转移概率？解释一下 $α(x_t,z)$引入的物理意义。<br>**答**：接收率 $α(x_t,z)$，其物理意义可以理解为在原来的马尔可夫链基础上，将状态 $i$以 $q(i,j)$概率转移到状态$j$时，通过以 $α(i,j)$的概率接受这个转移，从而得到新的马尔可夫链的转移概率为 $q(i,j)α(i,j)$，使得其符合细致平稳条件。<br>
 
@@ -94,45 +95,44 @@ $$
 
 <br>（2）这个试验主要分为两个过程。一是 $\overrightarrow{\alpha }\longrightarrow \theta \longrightarrow z_m$：投掷硬币A，生成观测结果中第 $m$次观测结果所使用的硬币编号 $k$；二是 $\overrightarrow{\beta }\longrightarrow \phi _{k}  \longrightarrow x_m\mid z_m=k$：生成第 $m$次观测结果时，选择编号为$k$的硬币，投掷这枚硬币，生成观测结果 $x_m$。<br>（3）第一个过程是二项分布，有 $P(\overrightarrow{z}\mid \theta )=\theta _{k}(1-\theta )^{n-k}$， $k$为硬币A正面朝上的次数。<br>（4）因为 $P(\overrightarrow{z}\mid \theta )\sim B(n,p_A)$，可以取参数 $\theta \sim Beta(\theta ,\overrightarrow{\alpha })$，组成伯努利-Beta共轭分布，则后验分布为： $P(\theta \mid \overrightarrow{z})\sim Beta(\theta \mid \alpha _1+k,\alpha _2+n-k)$， $P(\overrightarrow{z}\mid \overrightarrow{\alpha })=\int P(\overrightarrow{z}\mid \theta )P(\theta \mid \overrightarrow{\alpha })d\theta =\frac{B(\alpha _1+k,\alpha _2+n-k)}{B(\alpha _1,\alpha _2)}$。<br>（5）我们取参数 $θ$的值为在后验分布下的期望，则 $\theta =E(Beta(\theta \mid \alpha _1+k,\alpha _2+n-l))=\frac{\alpha _1+k}{(\alpha _1+k)(\alpha _2+n-k)}$。<br>（6） $n_1$和 $n_2$分别表示使用硬币B和硬币C的次数，如果已知每次观测结果来自哪枚硬币，任何两次观测结果都是可交换的，将来自同一枚硬币的观测结果放在一起： $\overrightarrow{x}=(\overrightarrow{x}_B,\overrightarrow{x}_C)$， $\overrightarrow{z}=(\overrightarrow{z}_B,\overrightarrow{z}_C)$。<br>（7）同上可知，对于来自硬币 $k$的观测结果， $P(\overrightarrow{x}_k\mid \phi _{k})\sim B(n_k,\phi _{k})$，参数 $\phi _{k}\sim Beta(\phi _{k}\mid \overrightarrow{\beta }_k)$，组成二项-Beta共轭分布，则后验分布： 
 <p align="center">
-  <img src="images/3.10.7.1.jpg" width="500" />
+  <img src="images/3.10.7.1.jpg" width="400" />
 </p>
-
-$P(\phi _{k}\mid \overrightarrow{x}_k)\sim Beta(\phi _{k}\mid \beta _{k,1}+n_{k,1},\phi _{k}\mid \beta _{k,2}+n_{k,2})$， 
 
 <p align="center">
-  <img src="images/3.10.7.2.jpg" width="500" />
+  <img src="images/3.10.7.2.jpg" width="430" />
 </p>
 
-$P(\overrightarrow{x}_k\mid \overrightarrow{z}_k,\overrightarrow{\beta }_k)=\frac{B(\beta _{k,1}+n_{k,1},\beta _{k,2}+n_{k,2})}{B(\beta _{k,1},\beta _{k,2})} k\in \left \{ B,C \right \}$， $n_{k,1}$和 $n_{k,2}$分别是 $k$硬币出现正反面的次数。<br>（8）参数的值为
+<br>$n_{k,1}$和 $n_{k,2}$分别是 $k$硬币出现正反面的次数。<br>（8）参数的值为
 <p align="center">
-  <img src="images/3.10.8.1.jpg" width="500" />
+  <img src="images/3.10.8.1.jpg" width="250" />
 </p>
 
-$\phi _{k}=\frac{\beta _{k,1}+n_{k,1}}{(\beta _{k,1}+n_{k,1})+(\beta _{k,2}+n_{k,2})}$，因此， 
+<br>因此， 
 <p align="center">
-  <img src="images/3.10.8.2.jpg" width="500" />
+  <img src="images/3.10.8.2.jpg" width="930" />
 </p>
 
-$P(\overrightarrow{x}\mid \overrightarrow{z},\overrightarrow{\beta })=P(\overrightarrow{x}_B\mid \overrightarrow{z}_B,\overrightarrow{\beta }_B)=P(\overrightarrow{x}_C\mid \overrightarrow{z}_C,\overrightarrow{\beta }_C)=\frac{B(\beta _{B,1}+k_{B},\beta _{B,2}+n_B-k_{B})}{B(\beta _{B,1},\beta _{B,2})}\frac{B(\beta _{C,1}+k_{C},\beta _{C,2}+n_C-k_{C})}{B(\beta _{C,1},\beta _{C,2})}$，综上，可以得到联合分布
+<br>综上，可以得到联合分布
 <p align="center">
-  <img src="images/3.10.8.3.jpg" width="500" />
+  <img src="images/3.10.8.3.jpg" width="1200" />
 </p>
 
-$p(\overrightarrow{x},\overrightarrow{z}\mid \overrightarrow{\alpha },\overrightarrow{\beta })=p(\overrightarrow{z}\mid \overrightarrow{\alpha })p(\overrightarrow{x}\mid \overrightarrow{z},\overrightarrow{\beta })=\frac{B(\alpha _1+k,\alpha _2+n-k)}{B(\alpha _1,\alpha _2)}\frac{B(\beta _{B,1}+k_{B},\beta _{B,2}+n_B-k_{B})}{B(\beta _{B,1},\beta _{B,2})}\frac{B(\beta _{C,1}+k_{C},\beta _{C,2}+n_C-k_{C})}{B(\beta _{C,1}, \beta _{C,2})}$。<br>（9）由于 $\overrightarrow{x}$是观测到的已知变量，只有 $\overrightarrow{z}$是隐含的变量，所以真正需要采样的是条件分布 $p(\overrightarrow{z}\mid \overrightarrow{x})$。根据Gibbs采样算法的要求，需求得任意一个坐标轴 $i$对应的条件分布 $p(z_i=k\mid \overrightarrow{z_{\neg i}},\overrightarrow{x})$。<br>（10）假设已经观测到 $x_i=t$，根据贝叶斯公式可以得到
+<br>（9）由于 $\overrightarrow{x}$是观测到的已知变量，只有 $\overrightarrow{z}$是隐含的变量，所以真正需要采样的是条件分布 $p(\overrightarrow{z}\mid \overrightarrow{x})$。根据Gibbs采样算法的要求，需求得任意一个坐标轴 $i$对应的条件分布 $p(z_i=k\mid \overrightarrow{z_{\neg i}},\overrightarrow{x})$。<br>（10）假设已经观测到 $x_i=t$，根据贝叶斯公式可以得到
 <p align="center">
-  <img src="images/3.10.10.1.jpg" width="500" />
+  <img src="images/3.10.10.1.jpg" width="840" />
 </p>
 
-$p(z_i=k\mid \overrightarrow{z_{\neg i}},\overrightarrow{x})=p(z_i=k\mid x_i=t,\overrightarrow{z_{\neg i}},\overrightarrow{x_{\neg i}})=\frac{p(z_i=k,x_i=t\mid \overrightarrow{z_{\neg i}},\overrightarrow{x_{\neg i}})}{p(x_i=t\mid \overrightarrow{z_{\neg i}},\overrightarrow{x_{\neg i}})}\propto p(z_i=k,x_i=t\mid \overrightarrow{z_{\neg i}},\overrightarrow{x_{\neg i}})$。去掉第 $i$次观测值并不影响其他共轭结构，其他共轭结构与 $z_i=k$， $x_i=t$是相互独立的，因此
+<br>去掉第 $i$次观测值并不影响其他共轭结构，其他共轭结构与 $z_i=k$， $x_i=t$是相互独立的，因此
 <p align="center">
-  <img src="images/3.10.10.2.jpg" width="500" />
+  <img src="images/3.10.10.2.jpg" width="910" />
 </p>
 
-$p(z_i=k\mid \overrightarrow{z_{\neg i}},\overrightarrow{x})\propto p(z_i=k,x_i=t\mid \overrightarrow{z_{\neg i}},\overrightarrow{x_{\neg i}})=p(z_i=k,x_i=t\mid \overrightarrow{z_{k,\neg i}},\overrightarrow{x_{k,\neg i}},\overrightarrow{z_{\neg k}},\overrightarrow{x_{\neg k}})=p(z_i=k,x_i=t\mid \overrightarrow{z_{k,\neg i}},\overrightarrow{x_{k,\neg i}})$，$\overrightarrow{x_{k,\neg i}}$表示去除第 $i$次观测所属k硬币的观测值。<br>（11）因此，得到Gibbs采样公式：
+<br>$\overrightarrow{x_{k,\neg i}}$表示去除第 $i$次观测所属k硬币的观测值。<br>（11）因此，得到Gibbs采样公式：
 <p align="center">
-  <img   src="images/3.10.11.jpg">
+  <img   src="images/3.10.11.jpg"width="2000" />
 </p>
-（12）利用python实现Gibbs采样过程，得到最终的参数估计结果： $π$=0.75， $p$=0.7， $q$=0.75。<br>
+
+<br>（12）利用python实现Gibbs采样过程，得到最终的参数估计结果： $\pi $=0.75， $p$=0.7， $q$=0.75。<br>
 
 **问题3.11**  参考破解凯撒密码的论文，体会MCMC的应用(Diaconis，2008)。<br>**答**：（1）化学和物理方面：从点阵规范理论到硬盘，MCMC计算是化学和物理的支柱；可以利用MCMC算法计算普通液体的性质，计算结果几乎和计算稀气体和谐波固体的性质一样确定。<br>（2）生物学方面：基于MCMC算法研究某地区赤杨、铁山纯林和混交林密度对生长和优势度的影响等。<br>（3）统计学方面：基于MCMC算法，针对多种超市商品日销数额的多步预测，预测个体顾客交易，并预测每笔交易的商品数量等；将MCMC算法应用于粒子滤波器领域及工程应用中。<br>（4）理论研究方面：许多问题，如计算一个矩阵的恒量或一个凸多面体的体积的精确答案可能需要指数级的时间，但是只要能找到一个快速混合马尔可夫链来随机生成问题实例，就可以在多项式次数的操作中找到可证明的精确近似。<br>
 
@@ -168,11 +168,11 @@ EM算法的目标是寻找一个合适的模型参数 $θ$使得 $P(X|θ)$尽可
 
 **问题5.1**  令正态分布 $N(μ,σ^2)$的样本 ${x_1,x_2,⋯,x_N }$，证明其均值
 <p align="center">
-  <img src="images/5.1.2.5.jpg" width="150" />
+  <img src="images/5.1.2.5.jpg" width="120" />
 </p>
 <br>是高斯均值参数 $μ$的无偏估计，而样本的方差
 <p align="center">
-  <img src="images/5.1.2.6.jpg" width="150" />
+  <img src="images/5.1.2.6.jpg" width="165" />
 </p>
 <br>是方差参数 $\sigma^{2}$的有偏估计。<br>
 
@@ -262,8 +262,9 @@ The python library of geographic graph hybrid network with attention layers (geo
 Online address: https://pypi.org/project/geographnet  
 
 **3.	Library of Autoencoder-based Residual Deep Network (resautonet)**
-<br>![](images/5.png)<br>
-The python library of autoencoder based residual deep network (resautonet). Current version (2.0) just supports the KERAS package of deep learning and will extend to the others in the future. This package is for the papers: "Encoder-decoder full residual deep networks for robust regression and spatiotemporal estimation" (Li, L., Fang, Y., and Wu, J. etc., 2021, IEEE Trans Neural Netw Learn Syst., 32(9): 4217–4230); https://ieeexplore.ieee.org/document/9186306); "Spatiotemporal imputation of MAIAC AOD using deep learning with downscaling" (Li, L., Franklin, M., and Girguisa, M. et al., 2020, Remote Sens. Environ., 32(9): 4217–4230; https://www.sciencedirect.com/science/article/abs/pii/S0034425719306042)<br>
+<br><img align="left"   src="images/5.png" width="420" />
+
+<br>The python library of autoencoder based residual deep network (resautonet). Current version (2.0) just supports the KERAS package of deep learning and will extend to the others in the future. This package is for the papers: "Encoder-decoder full residual deep networks for robust regression and spatiotemporal estimation" (Li, L., Fang, Y., and Wu, J. etc., 2021, IEEE Trans Neural Netw Learn Syst., 32(9): 4217–4230); https://ieeexplore.ieee.org/document/9186306); "Spatiotemporal imputation of MAIAC AOD using deep learning with downscaling" (Li, L., Franklin, M., and Girguisa, M. et al., 2020, Remote Sens. Environ., 32(9): 4217–4230; https://www.sciencedirect.com/science/article/abs/pii/S0034425719306042)<br>
 Online address: https://pypi.org/project/resautonet 
 
 **4.	Library for Bagging of Deep Residual Neural Networks (baggingrnet)**
@@ -273,13 +274,15 @@ multisource big data including wildfire smoke" (Li, L., Girguis, M, Lurmann, F.,
 <br>Online address: https://pypi.org/project/baggingrnet 
 
 **5.	Library of Full Residual Deep Network with Attention Layers (fullresattn)**
-<br>![](images/7.png)<br>
-The python library of full residual deep network with attention layers (fullresattn). Current version just supports the KERAS package of deep learning and will extend to the others in the future. <br>
+<br><img align="left"   src="images/7.png" width="420" />
+
+<br>The python library of full residual deep network with attention layers (fullresattn). Current version just supports the KERAS package of deep learning and will extend to the others in the future. <br>
 Online address: https://pypi.org/project/fullresattn 
 
 **6.	Library for Deep Residual Multiscale Segmenter (resmcseg)**
-<br>![](images/8.png)<br>
-The python library of Deep Residual Multiscale Segmenter (autonet). Current version just supports the KERAS package of deep learning and will extend to the others in the future. This package is for the paper: Deep Residual Autoencoder with Multiscaling for Semantic Segmentation of Land-Use Images (2019, Remote Sens., 11(18), 2142; https://www.mdpi.com/2072-4292/11/18/2142)<br>
+<br><img align="left"   src="images/8.png" width="420" />
+
+<br>The python library of Deep Residual Multiscale Segmenter (autonet). Current version just supports the KERAS package of deep learning and will extend to the others in the future. This package is for the paper: Deep Residual Autoencoder with Multiscaling for Semantic Segmentation of Land-Use Images (2019, Remote Sens., 11(18), 2142; https://www.mdpi.com/2072-4292/11/18/2142)<br>
 Online address: https://pypi.org/project/resmcseg
 
 ### **专利（Patents）**
@@ -294,4 +297,7 @@ Online address: https://pypi.org/project/resmcseg
 **5.	一种基于无人机的地物高光谱仪遥感土地利用样本采集仪（实用新型专利）**<br>A remote sensing land use sample collection instrument based on a UAV-based ground object hyperspectrometer (utility model patent)<br>
 
 **6.	一种提高海量空间数据处理效率的方法 （发明专利）**<br>A method to improve the processing efficiency of massive spatial data (invention patent)<br>
-![](images/9.jpg#pic_center)<br>
+<p align="center">
+  <img src="images/9.jpg" width="700" />
+</p>
+<br>
