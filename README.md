@@ -90,10 +90,9 @@ $$
  $n_{k,1}$和 $n_{k,2}$分别是 $k$硬币出现正反面的次数。<br>（8）参数的值为 $\phi _{k}=\frac{\beta _{k,1}+n_{k,1}}{(\beta _{k,1}+n_{k,1})+(\beta _{k,2}+n_{k,2})}$，因此， $P(\overrightarrow{x}\mid \overrightarrow{z},\overrightarrow{\beta })=P(\overrightarrow{x}_B\mid \overrightarrow{z}_B,\overrightarrow{\beta }_B)=P(\overrightarrow{x}_C\mid \overrightarrow{z}_C,\overrightarrow{\beta }_C)=\frac{B(\beta _{B,1}+k_{B},\beta _{B,2}+n_B-k_B)}{B(\beta _{B,1},\beta _{B,2})}\frac{B(\beta _{C,1}+k_{C},\beta _{C,2}+n_C-k_{C})}{B(\beta _{C,1},\beta _{C,2})}$，综上，可以得到联合分布 $p(\overrightarrow{x},\overrightarrow{z}\mid \overrightarrow{\alpha },\overrightarrow{\beta })=p(\overrightarrow{z}\mid \overrightarrow{\alpha })p(\overrightarrow{x}\mid \overrightarrow{z},\overrightarrow{\beta })=\frac{B(\alpha _1 +k,\alpha _2 +n-k)}{B(\alpha _1 ,\alpha _2 )}\frac{B(\beta _{B,1}+k_{B},\beta _{B,2}+n_B -k_{B})}{B(\beta _{B,1},\beta _{B,2})}\frac{B(\beta _{C,1}+k_{C},\beta _{C,2}+n_C -k_{C})}{B(\beta _{C,1}, \beta _{C,2})}$。<br>（9）由于 $\overrightarrow{x}$是观测到的已知变量，只有 $\overrightarrow{z}$是隐含的变量，所以真正需要采样的是条件分布 $p(\overrightarrow{z}\mid \overrightarrow{x})$。根据Gibbs采样算法的要求，需求得任意一个坐标轴 $i$对应的条件分布 $p(z_i =k\mid \overrightarrow{z_{\neg i}},\overrightarrow{x})$。<br>（10）假设已经观测到 $x_i =t$，根据贝叶斯公式可以得到 $p(z_i =k\mid \overrightarrow{z_{\neg i}},\overrightarrow{x})=p(z_i =k\mid x_i =t,\overrightarrow{z_{\neg i}},\overrightarrow{x_{\neg i}})=\frac{p(z_i =k,x_i=t\mid \overrightarrow{z_{\neg i}},\overrightarrow{x_{\neg i}})}{p(x_i =t\mid \overrightarrow{z_{\neg i}},\overrightarrow{x_{\neg i}})}\propto p(z_i =k,x_i =t\mid \overrightarrow{z_{\neg i}},\overrightarrow{x_{\neg i}})$。去掉第 $i$次观测值并不影响其他共轭结构，其他共轭结构与 $z_i =k$，$x_i =t$是相互独立的，因此 $p(z_i =k\mid \overrightarrow{z_{\neg i}},\overrightarrow{x})\propto p(z_i =k,x_i =t\mid \overrightarrow{z_{\neg i}},\overrightarrow{x_{\neg i}})=p(z_i =k,x_i =t\mid \overrightarrow{z_{k,\neg i}},\overrightarrow{x_{k,\neg i}},\overrightarrow{z_{\neg k}},\overrightarrow{x_{\neg k}})=p(z_i=k,x_i=t\mid \overrightarrow{z_{k,\neg i}},\overrightarrow{x_{k,\neg i}})$， $\overrightarrow{x_{k,\neg i}}$表示去除第 $i$次观测所属k硬币的观测值。<br>（11）因此，得到Gibbs采样公式： 
  
 $$
-P(z_i=k\mid \overrightarrow{z_{\neg i}},\overrightarrow{x})\propto p(z_i=k,x_i=t\mid \overrightarrow{z_{k,\neg i}},\overrightarrow{x_{k,\neg i}})=\int P(z_i=k,x_i=t,\theta ,\phi _{k}\mid \overrightarrow{z_{k,\neg i}},\overrightarrow{x_{k,\neg i}})d\theta d\phi _{k}
-\\
-=E(\theta )E(\phi _{k})=
-\\
+P(z_i=k\mid \overrightarrow{z_{\neg i}},\overrightarrow{x})\propto p(z_i=k,x_i=t\mid \overrightarrow{z_{k,\neg i}},\overrightarrow{x_{k,\neg i}})\\
+=\int P(z_i=k,x_i=t,\theta ,\phi _{k}\mid \overrightarrow{z_{k,\neg i}},\overrightarrow{x_{k,\neg i}})d\theta d\phi _{k}\\
+=E(\theta )E(\phi _{k})=\\
 \frac{\alpha _{1}+n_{(k,\neg i),1}}{(\alpha _{1}+n_{(k,\neg i),1})+(\alpha _{2}+n_{(k,\neg i),2})}\frac{\beta _{k,1}+n_{(k,\neg i),1}}{(\beta _{k,1}+n_{(k,\neg i),1})+(\beta _{k,2}+n_{(k,\neg i),2})} 
 <img/>
 $$
@@ -149,15 +148,16 @@ $$
 由于 
 
 $$
-\hat{{\sigma }_{N}}^{2}=E(x_j -\hat{\mu }_{N})^2
-\\
-=E(x_j^2 -2\hat{{\mu }}_{N}x_j+\hat{{\mu }}_{N}^2)
-\\
-=E(x_j^2)-\hat{{\mu }}_{N}^2 
+E(x_j^2)=\hat{\sigma }_{N}^{2}+\hat{\mu }_{N}^{2} 
 <img/>
 $$
 
-所以 $E(x_j^2 )=\hat{\sigma }_{N}^{2}+\hat{\mu }_{N}^{2}$。<br>又有 $E(\mu^{2} )=D(\mu )+[E(\mu )]^2=D(\frac{1}{N}\sum_{j=1}^{N}x_j)+[E(\mu )]^2=\frac{1}{N^2}\sum_{j=1}^{N}D(x_j)+\hat{\mu}_{N}^{2}=\frac{\hat{\sigma }_{N}^{2}}{N}+ \hat{\mu }_{N}^{2}$。<br>因此， $E(\sigma^{2})=\hat{\sigma}_{N}^{2}+\hat{\mu }_{N}^{2}-\hat{\mu }_{N}^{2}-\frac{\hat{\sigma }_{N}^{2}}{N}=\frac{N-1}{N}\hat{\sigma}_{N}^{2}$，样本方差是高斯方差参数的有偏估计。<br>
+$$
+E(x_j^2)=\hat{\sigma }_{N}^{2}+\hat{\mu }_{N}^{2}
+<img/>
+$$
+
+<br>所以 $E(x_j^2 )=\hat{\sigma }_{N}^{2}+\hat{\mu }_{N}^{2}$。<br>又有 $E(\mu^{2} )=D(\mu )+[E(\mu )]^2=D(\frac{1}{N}\sum_{j=1}^{N}x_j)+[E(\mu )]^2=\frac{1}{N^2}\sum_{j=1}^{N}D(x_j)+\hat{\mu}_{N}^{2}=\frac{\hat{\sigma }_{N}^{2}}{N}+ \hat{\mu }_{N}^{2}$。<br>因此， $E(\sigma^{2})=\hat{\sigma}_{N}^{2}+\hat{\mu }_{N}^{2}-\hat{\mu }_{N}^{2}-\frac{\hat{\sigma }_{N}^{2}}{N}=\frac{N-1}{N}\hat{\sigma}_{N}^{2}$，样本方差是高斯方差参数的有偏估计。<br>
 
 **问题6.1**  在梯度迭代计算中，节点拓扑排序可由深度优先（Depth First Search，DFS）及宽度优先方法（Breadth First Search，BFS）实现，二种方法分别如何实现？<br>**答**：（1）深度优先搜索会沿着一条路径一直搜索下去，在无法继续搜索时回退到刚刚访问过的结点，深度优先搜索的本质就是持续搜索，遍历所有可能的情况，每次一条路走到底。<br>（2）宽度优先搜索是从初始节点开始，应用产生式规则和控制策略生成第一层结点，同时检查目标结点是否在这些生成的结点中。若没有，再用产生式规则将所有第一层结点逐一拓展，得到第二层结点，并逐一检查第二层结点是否包含目标结点。若没有，再用产生式规则拓展第二层结点。如此依次拓展检查下去，直至发现目标结点为止。如果拓展完所有结点，都没有发现目标结点，则问题无解。<br>
 
