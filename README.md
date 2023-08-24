@@ -164,7 +164,15 @@ EM算法的目标是寻找一个合适的模型参数 $θ$使得 $P(X|θ)$尽可
 （4）由此证明，先验知识只知道均值情况下，最大熵分布式服从指数分布。
 <br>
 
-**问题4.5**  解释一下为什么 ${\sum_{i} (\int Q_i (Z_i )\ln Q_i (Z_i )dZ_i )}\_{Q_{-i} (Z_{-i})}=\sum_{i}\int Q_i (Z_i)\ln Q_i (Z_i)dZ_i $从而 $L(Q(Z))=\sum_{i}\int Q_{i}(Z_i)\ln Q_i ^{\ast } (Z_i)dZ_i+\sum_{i}\sum_{i}\int Q_i (Z_i)\ln Q_i (Z_i)dZ_i+\ln C=-D_{KL}(Q_i (Z_i)||Q_i ^{\ast }(Z_i)+H(Q_{i-1}(Z_{i-1})) +C$。<br>**答**：。<br>
+**问题4.5**  解释一下为什么 ${\sum_{i} (\int Q_i (Z_i )\ln Q_i (Z_i )dZ_i )}\_{Q_{-i} (Z_{-i})}=\sum_{i}\int Q_i (Z_i)\ln Q_i (Z_i)dZ_i $，从而 $L(Q(Z))=\int Q_{i}(Z_i)\ln Q_i ^{\ast } (Z_i)dZ_i-\sum_{i}\int Q_i (Z_i)\ln Q_i (Z_i)dZ_i+\ln C=-D_{KL}(Q_i (Z_i)||Q_i ^{\ast }(Z_i)+H(Q_{-i}(Z_{-i})) +\ln C$。<br>**答**：已假定 $Z$可拆分成已经相互独立的多变量 $Z_i(i=1,...,M)$，即 $Z_i$同 $Z_{-i}$之间是相互独立的，从而有
+<p align="center">
+  <img src="images/4.5.1.jpg" width="120" />
+</p>
+<br>显然，独立性使得 $\int Q_{-i}( Z_{-i})dZ_{-i}=1$，再对 $L(Q(Z))$进行分解与组合，得到：
+<p align="center">
+  <img src="images/4.5.2.jpg" width="120" />
+</p>
+<br>
 
 **问题5.1**  令正态分布 $N(μ,σ^2)$的样本 ${x_1,x_2,⋯,x_N }$，证明其均值
 <p align="center">
