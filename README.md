@@ -173,7 +173,7 @@ EM算法的目标是寻找一个合适的模型参数 $θ$使得 $P(X|θ)$尽可
   <img src="images/4.5.2.1.jpg" width="5000" />
 </p>
 <p align="center">
-  <img src="images/4.5.2.2.jpg" width="400" />
+  <img src="images/4.5.2.2.jpg" width="600" />
 </p>
 <br>
 
