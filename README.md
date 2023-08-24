@@ -170,10 +170,10 @@ EM算法的目标是寻找一个合适的模型参数 $θ$使得 $P(X|θ)$尽可
 </p>
 <br>显然，独立性使得 $\int Q_{-i}( Z_{-i})dZ_{-i}=1$，再对 $L(Q(Z))$进行分解与组合，得到：
 <p align="center">
-  <img src="images/4.5.2.1.jpg" width="2500" />
+  <img src="images/4.5.2.1.jpg" width="5000" />
 </p>
 <p align="center">
-  <img src="images/4.5.2.2.jpg" width="2500" />
+  <img src="images/4.5.2.2.jpg" width="660" />
 </p>
 <br>
 
